@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Hi, I'm Jie! ✨</title>
+
+<style>
+
+    /* ================================
+       GENERAL DESIGN
+    ================================= */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2,
+                #f093fb,
+                #4facfe
+            );
+
+        background-size: 400% 400%;
+        animation: gradientMove 12s ease infinite;
+    }
+
+
+    /* Animated Background */
+
+    @keyframes gradientMove {
+
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+
+    }
+
+
+    /* ================================
+       FLOATING DECORATIONS
+    ================================= */
+
+    .shape {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(5px);
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .shape1 {
+        width: 180px;
+        height: 180px;
+        top: -50px;
+        left: -50px;
+    }
+
+    .shape2 {
+        width: 120px;
+        height: 120px;
+        bottom: 40px;
+        right: 10%;
+        animation-delay: 2s;
+    }
+
+    .shape3 {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        right: 15%;
+        animation-delay: 1s;
+    }
+
+    .shape4 {
+        width: 100px;
+        height: 100px;
+        bottom: -30px;
+        left: 10%;
+        animation-delay: 3s;
+    }
+
+
+    @keyframes float {
+
+        0%, 100% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-25px);
+        }
+
+    }
+
+
+    /* ================================
+       PROFILE CARD
+    ================================= */
+
+    .profile-card {
+
+        width: 90%;
+        max-width: 420px;
+
+        padding: 40px 30px;
+
+        text-align: center;
+
+        border-radius: 30px;
+
+        background: rgba(255,255,255,0.18);
+
+        backdrop-filter: blur(18px);
+
+        -webkit-backdrop-filter: blur(18px);
+
+        border: 1px solid rgba(255,255,255,0.35);
+
+        box-shadow:
+            0 25px 50px rgba(0,0,0,0.25);
+
+        position: relative;
+
+        z-index: 10;
+
+        animation: cardEntrance 1s ease;
+
+    }
+
+
+    @keyframes cardEntrance {
+
+        from {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+    }
+
+
+    /* ================================
+       PROFILE IMAGE
+    ================================= */
+
+    .avatar-container {
+
+        position: relative;
+
+        width: 135px;
+        height: 135px;
+
+        margin: auto;
+
+    }
+
+
+    .avatar {
+
+        width: 135px;
+        height: 135px;
+
+        border-radius: 50%;
+
+        object-fit: cover;
+
+        border: 5px solid white;
+
+        box-shadow:
+            0 10px 30px rgba(0,0,0,0.25);
+
+        transition: 0.4s;
+
+    }
+
+
+    .avatar:hover {
+
+        transform: scale(1.08) rotate(3deg);
+
+    }
+
+
+    .online-status {
+
+        position: absolute;
+
+        width: 25px;
+        height: 25px;
+
+        background: #4ade80;
+
+        border: 4px solid white;
+
+        border-radius: 50%;
+
+        bottom: 5px;
+        right: 5px;
+
+    }
+
+
+    /* ================================
+       TEXT
+    ================================= */
+
+    h1 {
+
+        margin-top: 22px;
+
+        font-size: 28px;
+
+        color: white;
+
+        letter-spacing: 0.5px;
+
+        text-shadow:
+            0 4px 10px rgba(0,0,0,0.2);
+
+    }
+
+
+    .subtitle {
+
+        margin-top: 8px;
+
+        font-size: 14px;
+
+        color: rgba(255,255,255,0.85);
+
+        letter-spacing: 1px;
+
+    }
+
+
+    /* ================================
+       MESSAGE BOX
+    ================================= */
+
+    .message {
+
+        margin-top: 25px;
+
+        padding: 18px;
+
+        background:
+            rgba(255,255,255,0.15);
+
+        border:
+
+            1px solid rgba(255,255,255,0.2);
+
+        border-radius: 18px;
+
+        color: white;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+    }
+
+
+    /* ================================
+       SOCIAL LINKS
+    ================================= */
+
+    .links-container {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 13px;
+
+        margin-top: 25px;
+
+    }
+
+
+    .cute-button {
+
+        text-decoration: none;
+
+        color: white;
+
+        padding: 14px;
+
+        border-radius: 14px;
+
+        font-weight: 600;
+
+        font-size: 15px;
+
+        background:
+
+            rgba(255,255,255,0.15);
+
+        border:
+
+            1px solid rgba(255,255,255,0.25);
+
+        backdrop-filter:
+
+            blur(10px);
+
+        transition:
+
+            all 0.3s ease;
+
+        position:
+
+            relative;
+
+        overflow:
+
+            hidden;
+
+    }
+
+
+    /* Shine effect */
+
+    .cute-button::before {
+
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+
+        left: -100%;
+
+        width: 100%;
+
+        height: 100%;
+
+        background:
+
+            linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.4),
+                transparent
+            );
+
+        transition: 0.5s;
+
+    }
+
+
+    .cute-button:hover::before {
+
+        left: 100%;
+
+    }
+
+
+    .cute-button:hover {
+
+        transform:
+
+            translateY(-4px);
+
+        background:
+
+            rgba(255,255,255,0.3);
+
+        box-shadow:
+
+            0 10px 25px rgba(0,0,0,0.2);
+
+    }
+
+
+    /* ================================
+       FOOTER
+    ================================= */
+
+    .footer {
+
+        margin-top: 25px;
+
+        font-size: 12px;
+
+        color:
+
+            rgba(255,255,255,0.7);
+
+    }
+
+
+    /* ================================
+       MOBILE DESIGN
+    ================================= */
+
+    @media (max-width: 500px) {
+
+        body {
+            padding: 20px;
+        }
+
+        .profile-card {
+
+            padding: 30px 20px;
+
+        }
+
+        h1 {
+
+            font-size: 24px;
+
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- Floating background decorations -->
+
+<div class="shape shape1"></div>
+
+<div class="shape shape2"></div>
+
+<div class="shape shape3"></div>
+
+<div class="shape shape4"></div>
+
+
+<!-- PROFILE CARD -->
+
+<div class="profile-card">
+
+
+    <!-- PROFILE IMAGE -->
+
+    <div class="avatar-container">
+
+        <img
+            src="profile.jpg.jpg"
+            alt="Jie Balazo"
+            class="avatar"
+        >
+
+        <div class="online-status"></div>
+
+    </div>
+
+
+    <!-- NAME -->
+
+    <h1>
+        Hi, I'm Jie! 👋✨
+    </h1>
+
+
+    <!-- SUBTITLE -->
+
+    <p class="subtitle">
+        Just a standard human doing standard things ✨
+    </p>
+
+
+    <!-- MESSAGE -->
+
+    <div class="message">
+
+        💌 Just a small reminder, in case you forgot today:
+        <br><br>
+
+        You're amazing! ✨
+
+        <br><br>
+
+    </div>
+
+
+    <!-- SOCIAL MEDIA LINKS -->
+
+    <div class="links-container">
+
+
+        <a
+            href="https://www.facebook.com/baconeggjellyicedteaebi"
+            target="_blank"
+            class="cute-button"
+        >
+
+            📘 Facebook
+
+        </a>
+
+
+        <a
+            href="https://www.instagram.com/https.jiii_/"
+            target="_blank"
+            class="cute-button"
+        >
+
+            📸 Instagram
+
+        </a>
+
+
+        <a
+            href="https://www.tiktok.com/@https.jiii_"
+            target="_blank"
+            class="cute-button"
+        >
+
+            🎵 TikTok
+
+        </a>
+
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        Made ✨ by Jie Balazo
+
+    </div>
+
+
+</div>
+```
+
+</body>
+</html>
